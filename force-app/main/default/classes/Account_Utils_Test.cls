@@ -3,8 +3,13 @@ public with sharing class Account_Utils_Test {
 
     @TestSetup
     static void criarBaseDados(){
-        // ... (código de setup existente)
+        Account acc = new Account();
+        acc.Name = 'Conta teste';
+        acc.Type = 'Customer - Direct';
+        acc.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Cliente Prata').getRecordTypeId();
+        insert acc;
     }
+
 
     @IsTest
     static void getAccountRecordTypeId_Test(){

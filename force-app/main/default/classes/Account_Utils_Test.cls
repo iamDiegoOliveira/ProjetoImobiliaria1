@@ -90,4 +90,24 @@ public with sharing class Account_Utils_Test {
         System.assertNotEquals(null, allAccounts);
         System.assertNotEquals(0, allAccounts.size());
     }
+
+    @IsTest
+    static void isAccountActive_Test(){
+        // Testa o método isAccountActive da classe Account_Utils
+        Account_Utils contaUtils = new Account_Utils();
+
+        // Cria uma conta ativa
+        Account accAtiva = new Account(Name='Conta Ativa', IsActive=true);
+        insert accAtiva;
+
+        // Cria uma conta inativa
+        Account accInativa = new Account(Name='Conta Inativa', IsActive=false);
+        insert accInativa;
+
+        // Verifica se a conta ativa é considerada ativa
+        System.assertEquals(true, contaUtils.isAccountActive(accAtiva.Id));
+
+        // Verifica se a conta inativa não é considerada ativa
+        System.assertEquals(false, contaUtils.isAccountActive(accInativa.Id));
+    }
 }

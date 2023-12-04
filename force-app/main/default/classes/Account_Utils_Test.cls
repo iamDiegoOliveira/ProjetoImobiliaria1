@@ -90,4 +90,24 @@ public with sharing class Account_Utils_Test {
         System.assertNotEquals(null, allAccounts);
         System.assertNotEquals(0, allAccounts.size());
     }
+    
+    @IsTest
+    static void getUniqueAccountTypes_Test(){
+        // Testa o método getUniqueAccountTypes da classe Account_Utils
+        Account_Utils contaUtils = new Account_Utils();
+
+        // Cria duas contas com tipos diferentes
+        Account acc1 = new Account(Name='Conta1', Type='Tipo1');
+        Account acc2 = new Account(Name='Conta2', Type='Tipo2');
+
+        insert new List<Account>{acc1, acc2};
+
+        // Obtém a lista de tipos de conta únicos
+        List<String> uniqueTypes = contaUtils.getUniqueAccountTypes();
+
+        // Verifica se a lista contém os tipos esperados
+        System.assert(uniqueTypes.contains('Tipo1'));
+        System.assert(uniqueTypes.contains('Tipo2'));
+        System.assertEquals(2, uniqueTypes.size());
+    }
 }

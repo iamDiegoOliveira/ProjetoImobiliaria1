@@ -40,4 +40,12 @@ public with sharing class Account_Utils {
         List<Account> allAccounts = [SELECT Id, Name FROM Account];
         return allAccounts;
     }
+    public List<String> getUniqueAccountTypes(){
+        // Retorna uma lista de tipos de conta únicos
+        List<String> uniqueTypes = new List<String>();
+        for (AggregateResult ar : [SELECT Type FROM Account GROUP BY Type]) {
+            uniqueTypes.add(String.valueOf(ar.get('Type')));
+        }
+        return uniqueTypes;
+    }
 }

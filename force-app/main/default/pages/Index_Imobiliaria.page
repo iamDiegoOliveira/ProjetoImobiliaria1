@@ -1,17 +1,17 @@
 <apex:page controller="ImobiliariaController" >
 
-    <!-- Definições de Estilos -->
+<!-- Definições de Estilos -->
 <style>
-    #conteudo{
-    margin-top:10%;
-    margin-left:10%;
-    margin-right:10%;
-    
-    }
-    #form1{
-    
-    width:400px;
-    }
+#conteudo{
+margin-top:10%;
+margin-left:10%;
+margin-right:10%;
+
+}
+#form1{
+
+width:500px;
+}
 </style>
 
 
@@ -20,94 +20,197 @@
 
 
 <div id="conteudo">
-    <center>
-        <div id= "formulario" class="slds-escope">
-            
-            <article class="slds-card">
-                <div class="slds-card__header">  <!-- CABEÇALHO  -->
-                    <h2 class="slds-card__header-title">
-                        <span><b>CADASTRO DE IMÓVEIS</b></span>
-                    </h2>
-                </div>
+<center>
+    <div id= "form1" class="slds-escope">
+        
+        <article class="slds-card">
+            <div class="slds-card__header">  <!-- CABEÇALHO  -->
+                <h2 class="slds-card__header-title">
+                    <span><b>CADASTRO DE IMÓVEIS</b></span>
+                </h2>
+            </div>
 
 
-                <div class="slds-card__body slds-card__body_inner slds-form-element__control"> <!-- Conteudo do artigo -->
-                    <apex:form >  
-                    
+            <div class="slds-card__body slds-card__body_inner slds-form-element__control"> <!-- Conteudo do artigo -->
+                <apex:form >  
+                
 
-                    <!-- Mensagem da tela -->
-                        <!-- Através desse código aparecerá a mensagem de sucesso ou erro -->
-                    <apex:pageMessages id="showmessage">
-                    </apex:pageMessages>
+                <!-- Mensagem da tela -->
+                    <!-- Através desse código aparecerá a mensagem de sucesso ou erro -->
+                <apex:pageMessages id="showmessage">
+                </apex:pageMessages>
 
-                    <table class="slds-table slds-table_bordered">
-                        <thead>
-                            <tr>
-                                <th scope="col">
-                                    <div class="slds-truncate" title="Itens"> ITENS </div>
-                                </th>
+                <table class="slds-table slds-table_bordered">
+                    <thead>
+                        <tr>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Itens"> ITENS </div>
+                            </th>
 
-                                <th scope="col"> 
-                                    <div class="slds-truncate" title="QUANTIDADE"> QUANTIDADE </div>
-                                </th>
-                            </tr>
-                        </thead>
+                            <th scope="col"> 
+                                <div class="slds-truncate" title="QUANTIDADE"> QUANTIDADE </div>
+                            </th>
+                        </tr>
+                    </thead>
 
-                        <tbody>
-                            <tr>
-                                <th data-label = "Quartos" scope="row" >
+                    <tbody>
+                        <tr>     <!-- Linha da datatable -->
+                            <th data-label = "Quartos" scope="row" > <!-- Celula da linha -->
+                            <div class="slds-truncate" title="Quartos">
+                                <label class="slds-form-element__label">Quartos: </label>
+                            </div>    
+                            </th> 
+                            <td data-label= "Quartos">  <!-- Celula da linha -->
                                 <div class="slds-truncate" title="Quartos">
-                                    <label class="slds-form-element__label">Quartos: </label>
-                                </div>    
-                                </th> 
-                                <td data-label= "Quartos">
-
-                                    <div class="slds-truncate" title="Quartos">
-                                        <apex:inputText value="{!quartos}"/>
-                                    </div>
-                                </td>
-
-                                
-                            </tr>
-                        </tbody>
+                                    <apex:inputText value="{!quartos}" styleClass="slds-input"/>
+                                </div>
+                            </td>
+                        </tr>
 
 
-                    </table>
+
+                        <tr>     <!-- Linha da datatable -->
+                            <th data-label = "Banheiros" scope="row" > <!-- Celula da linha -->
+                            <div class="slds-truncate" title="Banheiros">
+                                <label class="slds-form-element__label">Banheiros: </label>
+                            </div>    
+                            </th> 
+                            <td data-label= "Banheiros">  <!-- Celula da linha -->
+                                <div class="slds-truncate" title="Banheiros">
+                                    <apex:inputText value="{!banheiros}" styleClass="slds-input"/>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <tr>     <!-- Linha da datatable -->
+                            <th data-label = "Sala" scope="row" > <!-- Celula da linha -->
+                            <div class="slds-truncate" title="Sala">
+                                <label class="slds-form-element__label">Salas: </label>
+                            </div>    
+                            </th> 
+                            <td data-label= "Sala">  <!-- Celula da linha -->
+                                <div class="slds-truncate" title="Sala">
+                                    <apex:inputText value="{!sala}" styleClass="slds-input"/>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <tr>     <!-- Linha da datatable -->
+                            <th data-label = "Cozinha" scope="row" > <!-- Celula da linha -->
+                            <div class="slds-truncate" title="Cozinha">
+                                <label class="slds-form-element__label">Cozinhas: </label>
+                            </div>    
+                            </th> 
+                            <td data-label= "Cozinha">  <!-- Celula da linha -->
+                                <div class="slds-truncate" title="Cozinha">
+                                    <apex:inputText value="{!cozinha}" styleClass="slds-input"/>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>     <!-- Linha da datatable -->
+                            <th data-label = "Quintal" scope="row" > <!-- Celula da linha -->
+                            <div class="slds-truncate" title="Quintal">
+                                <label class="slds-form-element__label">Quintal: </label>
+                            </div>    
+                            </th> 
+                            <td data-label= "Quintal">  <!-- Celula da linha -->
+                                <div class="slds-truncate" title="Quintal">
+                                    <apex:inputText value="{!quintal}" styleClass="slds-input"/>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>     <!-- Linha da datatable -->
+                            <th data-label = "Copa" scope="row" > <!-- Celula da linha -->
+                            <div class="slds-truncate" title="Copa">
+                                <label class="slds-form-element__label">Copas: </label>
+                            </div>    
+                            </th> 
+                            <td data-label= "Copa">  <!-- Celula da linha -->
+                                <div class="slds-truncate" title="Copa">
+                                    <apex:inputText value="{!copa}" styleClass="slds-input"/>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>     <!-- Linha da datatable -->
+                            <th data-label = "Suite" scope="row" > <!-- Celula da linha -->
+                            <div class="slds-truncate" title="Suite">
+                                <label class="slds-form-element__label">Suites: </label>
+                            </div>    
+                            </th> 
+                            <td data-label= "Suite">  <!-- Celula da linha -->
+                                <div class="slds-truncate" title="Suite">
+                                    <apex:inputText value="{!suite}" styleClass="slds-input"/>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>     <!-- Linha da datatable -->
+                            <th data-label = "Vagas de Garagem" scope="row" > <!-- Celula da linha -->
+                            <div class="slds-truncate" title="Vagas de Garagem">
+                                <label class="slds-form-element__label">Vagas de Garagem: </label>
+                            </div>    
+                            </th> 
+                            <td data-label= "Vagas de Garagem">  <!-- Celula da linha -->
+                                <div class="slds-truncate" title="Vagas de Garagem">
+                                    <apex:inputText value="{!vagasGaragem}" styleClass="slds-input"/>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>     <!-- Linha da datatable -->
+                            <th data-label = "Valor" scope="row" > <!-- Celula da linha -->
+                            <div class="slds-truncate" title="Valor">
+                                <label class="slds-form-element__label">Valor: </label>
+                            </div>    
+                            </th> 
+                            <td data-label= "Valor">  <!-- Celula da linha -->
+                                <div class="slds-truncate" title="Valor">
+                                    <apex:inputText value="{!valor}" styleClass="slds-input"/>
+                                </div>
+                            </td>
+                        </tr>
+
+                        <tr>     <!-- Linha da datatable -->
+                            <th data-label = "Tipo do Imóvel" scope="row" > <!-- Celula da linha -->
+                            <div class="slds-truncate" title="Tipo do Imóvel">
+                                <label class="slds-form-element__label">Tipo do Imóvel: </label>
+                            </div>    
+                            </th> 
+                            <td data-label= "Tipo do Imóvel">  <!-- Celula da linha -->
+                                <div class="slds-truncate" title="Tipo do Imóvel">
+                                    <apex:selectList value="{!tipoImovel}" multiselect="false" size="1" required="true" styleClass="slds-input">
+                                             <!-- chamada para o método que preenche as opções sem utilizar o Get do Método da controller -->
+                                             <apex:selectOptions value="{!MinhasOpcoes}"/>
                         
-                        
-                        Banheiros: <apex:inputText value="{!banheiros}" /> 
-                        Sala: <apex:inputText value="{!sala}" />
-                        Cozinha: <apex:inputText value="{!cozinha}" />
-                        Quintal: <apex:inputText value="{!quintal}"/>
-                        Copa: <apex:inputText value="{!copa}" />
-                        Suite: <apex:inputText value="{!suite}" />
-                        Vagas de Garagem: <apex:inputText value="{!vagasGaragem}" />
-                        Valor: <apex:inputText value="{!valor}" />
-                        
-                        <!-- Campo Picklist -->
-                        * Tipo do Imóvel:
-                        <apex:selectList value="{!tipoImovel}" multiselect="false" size="1" required="true">
-                            <!-- chamada para o método que preenche as opções sem utilizar o Get do Método da controller -->
-                            <apex:selectOptions value="{!MinhasOpcoes}"/>
-                            
-                        </apex:selectList>
-                        
+                                      </apex:selectList>
+                                </div>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+
+                </table>
+
+                    <br/>
+                    <apex:commandButton value="Salvar" action="{!salvarImoveis}" styleClass="slds-button slds-button_success" />
                     
-
-                        <br/>
-                        <apex:commandButton value="Salvar" action="{!salvarImoveis}" styleClass="slds-button slds-button_success" />
-                        
-                    
-                </apex:form>
-                </div>
-               
-
-            </article>
                 
-                
+            </apex:form>
+            </div>
             
-        </div>
-    </center>
+
+        </article>
+            
+            
+        
+    </div>
+</center>
 </div>
 
 </apex:page>

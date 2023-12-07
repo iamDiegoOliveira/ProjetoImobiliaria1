@@ -40,4 +40,20 @@ public with sharing class Account_Utils {
         List<Account> allAccounts = [SELECT Id, Name FROM Account];
         return allAccounts;
     }
+
+    public Decimal calculateTotalAccountBalance(List<Account> accounts){
+        // Calcula o saldo total de todas as contas fornecidas
+        Decimal totalBalance = 0.0;
+        for (Account acc : accounts) {
+            totalBalance += acc.Balance__c != null ? acc.Balance__c : 0.0;
+        }
+        return totalBalance;
+    }
+
+    public Boolean isAccountActive(String accountId){
+        // Verifica se uma conta com base no ID fornecido está ativa
+        Account acc = [SELECT Id, IsActive FROM Account WHERE Id = :accountId LIMIT 1];
+        return acc != null && acc.IsActive;
+    }
 }
+

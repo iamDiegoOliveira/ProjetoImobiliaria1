@@ -3,8 +3,13 @@ public with sharing class Account_Utils_Test {
 
     @TestSetup
     static void criarBaseDados(){
-        // ... (código de setup existente)
+        Account acc = new Account();
+        acc.Name = 'Conta teste';
+        acc.Type = 'Customer - Direct';
+        acc.RecordTypeId = Schema.SObjectType.Account.getRecordTypeInfosByName().get('Cliente Prata').getRecordTypeId();
+        insert acc;
     }
+
 
     @IsTest
     static void getAccountRecordTypeId_Test(){
@@ -89,5 +94,25 @@ public with sharing class Account_Utils_Test {
         // Verifica se a lista não é nula e contém pelo menos uma conta
         System.assertNotEquals(null, allAccounts);
         System.assertNotEquals(0, allAccounts.size());
+    }
+
+    @IsTest
+    static void isAccountActive_Test(){
+        // Testa o método isAccountActive da classe Account_Utils
+        Account_Utils contaUtils = new Account_Utils();
+
+        // Cria uma conta ativa
+        Account accAtiva = new Account(Name='Conta Ativa', IsActive=true);
+        insert accAtiva;
+
+        // Cria uma conta inativa
+        Account accInativa = new Account(Name='Conta Inativa', IsActive=false);
+        insert accInativa;
+
+        // Verifica se a conta ativa é considerada ativa
+        System.assertEquals(true, contaUtils.isAccountActive(accAtiva.Id));
+
+        // Verifica se a conta inativa não é considerada ativa
+        System.assertEquals(false, contaUtils.isAccountActive(accInativa.Id));
     }
 }

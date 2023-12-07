@@ -1,0 +1,113 @@
+<apex:page controller="ImobiliariaController" >
+
+    <!-- Definições de Estilos -->
+<style>
+    #conteudo{
+    margin-top:10%;
+    margin-left:10%;
+    margin-right:10%;
+    
+    }
+    #form1{
+    
+    width:400px;
+    }
+</style>
+
+
+<!-- Chamada para o SLDS -->
+<apex:slds/>
+
+
+<div id="conteudo">
+    <center>
+        <div id= "formulario" class="slds-escope">
+            
+            <article class="slds-card">
+                <div class="slds-card__header">  <!-- CABEÇALHO  -->
+                    <h2 class="slds-card__header-title">
+                        <span><b>CADASTRO DE IMÓVEIS</b></span>
+                    </h2>
+                </div>
+
+
+                <div class="slds-card__body slds-card__body_inner slds-form-element__control"> <!-- Conteudo do artigo -->
+                    <apex:form >  
+                    
+
+                    <!-- Mensagem da tela -->
+                        <!-- Através desse código aparecerá a mensagem de sucesso ou erro -->
+                    <apex:pageMessages id="showmessage">
+                    </apex:pageMessages>
+
+                    <table class="slds-table slds-table_bordered">
+                        <thead>
+                            <tr>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Itens"> ITENS </div>
+                                </th>
+
+                                <th scope="col"> 
+                                    <div class="slds-truncate" title="QUANTIDADE"> QUANTIDADE </div>
+                                </th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <tr>
+                                <th data-label = "Quartos" scope="row" >
+                                <div class="slds-truncate" title="Quartos">
+                                    <label class="slds-form-element__label">Quartos: </label>
+                                </div>    
+                                </th> 
+                                <td data-label= "Quartos">
+
+                                    <div class="slds-truncate" title="Quartos">
+                                        <apex:inputText value="{!quartos}"/>
+                                    </div>
+                                </td>
+
+                                
+                            </tr>
+                        </tbody>
+
+
+                    </table>
+                        
+                        
+                        Banheiros: <apex:inputText value="{!banheiros}" /> 
+                        Sala: <apex:inputText value="{!sala}" />
+                        Cozinha: <apex:inputText value="{!cozinha}" />
+                        Quintal: <apex:inputText value="{!quintal}"/>
+                        Copa: <apex:inputText value="{!copa}" />
+                        Suite: <apex:inputText value="{!suite}" />
+                        Vagas de Garagem: <apex:inputText value="{!vagasGaragem}" />
+                        Valor: <apex:inputText value="{!valor}" />
+                        
+                        <!-- Campo Picklist -->
+                        * Tipo do Imóvel:
+                        <apex:selectList value="{!tipoImovel}" multiselect="false" size="1" required="true">
+                            <!-- chamada para o método que preenche as opções sem utilizar o Get do Método da controller -->
+                            <apex:selectOptions value="{!MinhasOpcoes}"/>
+                            
+                        </apex:selectList>
+                        
+                    
+
+                        <br/>
+                        <apex:commandButton value="Salvar" action="{!salvarImoveis}" styleClass="slds-button slds-button_success" />
+                        
+                    
+                </apex:form>
+                </div>
+               
+
+            </article>
+                
+                
+            
+        </div>
+    </center>
+</div>
+
+</apex:page>
